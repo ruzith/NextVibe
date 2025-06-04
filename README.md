@@ -15,22 +15,6 @@ Welcome to **Next Vibe**, a modern digital experience that fuses **technology**,
 
 ---
 
-## 📁 Project Structure
-
-\`\`\`
-src/
-├── assets/images/       # Static image assets (head, hands, bg)
-├── components/          # Reusable React components
-│   ├── Navbar.jsx
-│   ├── Hero.jsx
-│   ├── About.jsx
-│   ├── Services.jsx
-│   └── ...
-├── App.jsx              # Main app container
-└── index.js             # Entry point
-\`\`\`
-
----
 
 ## 🛠️ Tech Stack
 
