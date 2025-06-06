@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink, scroller } from 'react-scroll';
 import { FiSend } from 'react-icons/fi';
 
 const Navbar = () => {
@@ -16,6 +16,20 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent spy error by manually scrolling if target exists
+  const safeScrollTo = (target, name) => {
+    try {
+      scroller.scrollTo(target, {
+        duration: 500,
+        smooth: true,
+        offset: -70,
+      });
+      setActive(name);
+    } catch (error) {
+      console.warn(`Scroll target '${target}' not found.`);
+    }
+  };
 
   const navItemClass = (name) =>
     `relative cursor-pointer transition font-medium ${
@@ -38,38 +52,26 @@ const Navbar = () => {
 
           {/* Nav Links */}
           <div className="flex gap-6 md:gap-8 items-center text-sm md:text-base">
-            <ScrollLink
-              to="hero"
-              spy
-              smooth
-              duration={500}
-              onSetActive={() => setActive('home')}
+            <div
+              onClick={() => safeScrollTo('hero', 'home')}
               className={navItemClass('home')}
             >
               Home
-            </ScrollLink>
+            </div>
 
-            <ScrollLink
-              to="about"
-              spy
-              smooth
-              duration={500}
-              onSetActive={() => setActive('about')}
+            <div
+              onClick={() => safeScrollTo('about', 'about')}
               className={navItemClass('about')}
             >
               About Us
-            </ScrollLink>
+            </div>
 
-            <ScrollLink
-              to="services"
-              spy
-              smooth
-              duration={500}
-              onSetActive={() => setActive('services')}
+            <div
+              onClick={() => safeScrollTo('services', 'services')}
               className={navItemClass('services')}
             >
               Services
-            </ScrollLink>
+            </div>
 
             <button
               onClick={() => {

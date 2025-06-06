@@ -3,10 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import ContactUs from './pages/ContactUs';
+import Navbar from './components/Navbar'; // ✅ import your Navbar
 
 function App() {
   return (
     <Router>
+      {/* ✅ Navbar is now outside the routes so it shows globally */}
+      <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
