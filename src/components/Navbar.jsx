@@ -1,40 +1,53 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link as ScrollLink, scroller } from 'react-scroll';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 import { FiSend } from 'react-icons/fi';
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [active, setActive] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === '/shop') setActive('shop');
+    else if (path === '/contact') setActive('contact');
+    else setActive('home');
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent spy error by manually scrolling if target exists
   const safeScrollTo = (target, name) => {
-    try {
+    setActive(name);
+    if (location.pathname !== '/') {
+      navigate('/', { replace: false });
+      setTimeout(() => {
+        scroller.scrollTo(target, {
+          duration: 500,
+          smooth: true,
+          offset: -70,
+        });
+      }, 100);
+    } else {
       scroller.scrollTo(target, {
         duration: 500,
         smooth: true,
         offset: -70,
       });
-      setActive(name);
-    } catch (error) {
-      console.warn(`Scroll target '${target}' not found.`);
     }
   };
 
   const navItemClass = (name) =>
     `relative cursor-pointer transition font-medium ${
       active === name
-        ? 'after:absolute after:content-[""] after:h-[2px] after:w-5 after:bg-black/80 after:rounded-full after:left-1/2 after:-translate-x-1/2 after:-bottom-1'
+        ? 'after:absolute after:content-[""] after:h-[2px] after:w-5 after:bg-white/80 after:rounded-full after:left-1/2 after:-translate-x-1/2 after:-bottom-1'
         : ''
     }`;
 
@@ -42,11 +55,9 @@ const Navbar = () => {
     <>
       {/* Full Navbar at Top */}
       {!scrolled && (
-        <nav
-          className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[92%] max-w-7xl flex items-center justify-between px-6 md:px-12 py-3 rounded-full shadow-md backdrop-blur-md bg-white/70 text-gray-800 border border-white/30 transition-all duration-300"
-        >
+        <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[92%] max-w-7xl flex items-center justify-between px-6 md:px-12 py-3 rounded-full shadow-md backdrop-blur-md bg-[#0a0f2c]/80 text-white border border-white/10 transition-all duration-300">
           {/* Logo */}
-          <div className="text-xl md:text-2xl font-bold tracking-tight text-purple-700">
+          <div className="text-xl md:text-2xl font-bold tracking-tight text-purple-400">
             Next Vibe
           </div>
 
@@ -88,7 +99,7 @@ const Navbar = () => {
                 setActive('contact');
                 navigate('/contact');
               }}
-              className="flex items-center gap-1 font-semibold text-red-600"
+              className="flex items-center gap-1 font-semibold text-red-400"
             >
               Contact <FiSend className="text-lg" />
             </button>
@@ -99,7 +110,7 @@ const Navbar = () => {
       {/* Split Navbar on Scroll */}
       {scrolled && (
         <>
-          <div className="fixed top-4 left-6 z-50 bg-pink-200 text-purple-700 px-6 py-2 rounded-full text-xl font-bold shadow-md transition-all duration-300">
+          <div className="fixed top-4 left-6 z-50 bg-[#1e2a55] text-purple-300 px-6 py-2 rounded-full text-xl font-bold shadow-md transition-all duration-300">
             Next Vibe
           </div>
 
