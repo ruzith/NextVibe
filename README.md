@@ -43,6 +43,19 @@ npm start
 
 ---
 
+## 📸 Screenshots
+
+Take a look at some key sections of the **Next Vibe** web experience:
+
+<img width="959" alt="SS1" src="https://github.com/user-attachments/assets/3461927a-89d4-478e-bdc4-4afc17b208d2" />
+
+<img width="959" alt="ss2" src="https://github.com/user-attachments/assets/494ea63a-757f-4c51-a57d-7c2168bbab37" />
+
+<img width="959" alt="SS3" src="https://github.com/user-attachments/assets/ed9a5fe7-332b-45ee-9ad9-43d3673d2acc" />
+
+<img width="959" alt="ss4" src="https://github.com/user-attachments/assets/4d60d13c-6227-4cd5-8f74-3f79e77151c3" />
+
+
 ## 🔧 Scripts
 
 \`\`\`bash
