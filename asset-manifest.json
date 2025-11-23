@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/NextVibe/static/css/main.da4558f2.css",
+    "main.js": "/NextVibe/static/js/main.2ead6c2f.js",
+    "static/js/488.b496b0d7.chunk.js": "/NextVibe/static/js/488.b496b0d7.chunk.js",
+    "static/media/head.png": "/NextVibe/static/media/head.04880a0723ac4e35ef34.png",
+    "static/media/secondbackground.png": "/NextVibe/static/media/secondbackground.dfc3f3cd9ff457ab4e09.png",
+    "static/media/background.png": "/NextVibe/static/media/background.a1efc5f4b6d2b45bf0ff.png",
+    "static/media/ServicesImg1.png": "/NextVibe/static/media/ServicesImg1.dfc99a0bfa338284077e.png",
+    "static/media/ServicesBg.png": "/NextVibe/static/media/ServicesBg.a39d3649b7970caa1541.png",
+    "static/media/ServicesImg2.png": "/NextVibe/static/media/ServicesImg2.3a2dcbcf7e45b177595d.png",
+    "static/media/hands.png": "/NextVibe/static/media/hands.779d7e8947684487204d.png",
+    "index.html": "/NextVibe/index.html",
+    "main.da4558f2.css.map": "/NextVibe/static/css/main.da4558f2.css.map",
+    "main.2ead6c2f.js.map": "/NextVibe/static/js/main.2ead6c2f.js.map",
+    "488.b496b0d7.chunk.js.map": "/NextVibe/static/js/488.b496b0d7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da4558f2.css",
+    "static/js/main.2ead6c2f.js"
+  ]
+}
